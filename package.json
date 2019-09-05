@@ -1,0 +1,22 @@
+{
+  "name": "ac083019",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "cypress:open": "cypress open tests/",
+    "cypress:test": "cypress run tests/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://dms-submissions.customappsteam.co.uk/assessments/ac083019.git"
+  },
+  "author": "Abhinav",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^3.4.1"
+  }
+}
