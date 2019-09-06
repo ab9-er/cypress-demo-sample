@@ -17,14 +17,14 @@ describe('eCommerce search and buy', () => {
     it('Given I navigate to the website', () => {
       generic.openWebsite();
       generic.clearPrivacyMessage();
-    })
+    });
         
     it('When I search for an iPhone to buy', () => {
-      homePage.searchProduct('iphone');
+      homePage.searchProduct(Cypress.env('productName'));
       generic.clearCookieMessage();
-      productPage.verifyProductLandingPage('iphone')
-      productPage.selectProduct("3769035")
-    })
+      productPage.verifyProductLandingPage(Cypress.env('productName'));
+      productPage.selectProduct(Cypress.env('productId'));
+    });
 
     it('Then I should add the product to cart and proceed till checkout', () => {
       productPage.addToBasket();
@@ -32,11 +32,12 @@ describe('eCommerce search and buy', () => {
       generic.clearCookieMessage();
       basketPage.continueToCheckout();
       checkoutPage.selectGuestCheckoutMode();
-      checkoutPage.enterGuestEmailAndContinue('test+mail@gmail.com')
+      checkoutPage.enterGuestEmailAndContinue(Cypress.env('guestEmail'));
       checkoutPage.selectHomeDeliveryMode();
-      checkoutPage.fillGuestDetails('Mr.', 'John', 'Smith', '07070707070', 'EC1 4DG')
-      checkoutPage.selectNamedDayDelivery()
-      checkoutPage.confirmDeliveryDetails()
-      generic.takeScreenshot('validatedScreenshot')
-    })
+      checkoutPage.fillGuestDetails(Cypress.env('guestTitle'), 
+                                    Cypress.env('guestFirstName'), Cypress.env('guestLastName'), Cypress.env('guestPhoneNumber'), Cypress.env('guestPostCode'));
+      checkoutPage.selectNamedDayDelivery();
+      checkoutPage.confirmDeliveryDetails();
+      generic.takeScreenshot(Cypress.env('screenshotFileName'));
+    });
 });
