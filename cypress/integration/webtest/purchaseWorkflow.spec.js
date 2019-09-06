@@ -35,7 +35,10 @@ describe('eCommerce search and buy', () => {
       checkoutPage.enterGuestEmailAndContinue(Cypress.env('guestEmail'));
       checkoutPage.selectHomeDeliveryMode();
       checkoutPage.fillGuestDetails(Cypress.env('guestTitle'), 
-                                    Cypress.env('guestFirstName'), Cypress.env('guestLastName'), Cypress.env('guestPhoneNumber'), Cypress.env('guestPostCode'));
+                                    Cypress.env('guestFirstName'), 
+                                    Cypress.env('guestLastName'), 
+                                    Cypress.env('guestPhoneNumber'), 
+                                    Cypress.env('guestPostCode'));
       checkoutPage.selectNamedDayDelivery();
       checkoutPage.confirmDeliveryDetails();
       generic.takeScreenshot(Cypress.env('screenshotFileName'));
